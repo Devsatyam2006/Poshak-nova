@@ -1,0 +1,46 @@
+document.getElementById("save-product").addEventListener("click", () => {
+
+    const name = document.getElementById("product-name").value;
+    const price = document.getElementById("product-price").value;
+    const category = document.getElementById("product-category").value;
+    const stock = document.getElementById("product-stock").value;
+    const imageUrl= document.getElementById("product-images").value;
+    
+    const totalProductElement = document.getElementById("total-product");
+    let currentValue = parseInt(totalProductElement.textContent);
+    totalProductElement.textContent = currentValue + 1;
+
+
+    const statusText = (parseInt(stock) > 0) ? 'Active' : 'Out of Stock';
+    const statusClass = (parseInt(stock) > 0) ? 'active' : 'inactive';
+
+    const tableBody = document.getElementById("product-table-body");
+    const newRow = document.createElement("tr");
+
+    newRow.innerHTML = `
+        <td>
+          <div class="product-cell">
+            <img src="${imageUrl}" alt="${name}" class="product-img">
+            <span>${name}</span>
+          </div>
+        </td>
+        <td>${category}</td>
+        <td>${price}</td>
+        <td>${stock}</td>
+        <td><span class="status ${statusClass}">${statusText}</span></td>
+        <td>
+          <button class="action-btn">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button class="action-btn">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
+    `;
+
+    tableBody.appendChild(newRow);
+
+    document.getElementById("product-form").reset();
+
+  });
+  

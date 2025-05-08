@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Astral Threads</title>
+    <link rel="stylesheet" href="Main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Left Side - Decorative Image -->
+    <div class="login-left">
+        <h1 id="left-title">Welcome Back</h1>
+        <p id="left-description">Continue your celestial fashion journey with Poshak Nova. Access your wishlist, track orders, and discover personalized recommendations.</p>
+        <p id="left-link">New to Poshak Nova? <a href="#" id="switch-to-register">Create an account</a></p>
+    </div>
+    
+    <!-- Right Side - Forms Container -->
+    <div class="login-right">
+        <!-- Login Form -->
+        <div class="login-container" id="login-form">
+            <a href="#" class="login-logo">Poshak Nova</a>
+            
+            <div class="login-header">
+                <h2>Login to Your Account</h2>
+                <p>Enter your details below</p>
+            </div>
+            
+            <div class="message hidden" id="login-message"></div>
+            
+            <form class="login-form" id="login-form-element" action="/login" method="POST">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" name="email" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <div class="password-container">
+                        <input type="password" id="login-password" name="password" placeholder="••••••••" required>
+                        <i class="fas fa-eye toggle-password" id="toggle-login-password"></i>
+                    </div>
+                </div>
+                
+                <div class="remember-forgot">
+                    <div class="remember-me">
+                        <input type="checkbox" name="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password" id="forgot-password-link">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="btn">Sign In</button>
+                
+                <div class="social-login">
+                    <p>Or sign in with</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-apple"></i></a>
+                    </div>
+                </div>
+                
+                <div class="register-link">
+                    Don't have an account? <a href="#" id="show-register">Sign up</a>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Registration Form -->
+        <div class="login-container hidden" id="register-form">
+            <a href="#" class="login-logo">Astral Threads</a>
+            
+            <div class="login-header">
+                <h2>Create Your Account</h2>
+                <p>Join our celestial community</p>
+            </div>
+            
+            <div class="message hidden" id="register-message"></div>
+            
+            <form class="login-form" id="register-form-element" action="/register" method="POST">
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" name="name" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-email">Email Address</label>
+                    <input type="email" id="register-email" name="email" placeholder="your@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <div class="password-container">
+                        <input type="password" id="register-password" name="password" placeholder="••••••••" required>
+                        <i class="fas fa-eye toggle-password" id="toggle-register-password"></i>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-meter" id="password-strength-meter"></div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <div class="password-container">
+                        <input type="password" id="register-confirm-password" placeholder="••••••••" required>
+                        <i class="fas fa-eye toggle-password" id="toggle-confirm-password"></i>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Create Account</button>
+                
+                <div class="register-link">
+                    Already have an account? <a href="#" id="show-login">Sign in</a>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Forgot Password Form -->
+        <div class="login-container hidden" id="forgot-password-form">
+            <a href="#" class="login-logo">Astral Threads</a>
+            
+            <div class="login-header">
+                <h2>Reset Your Password</h2>
+                <p>We'll send you a link to reset your password</p>
+            </div>
+            
+            <div class="message hidden" id="forgot-message"></div>
+            
+            <form class="login-form" id="forgot-form-element" action="/forgot-password" method="POST">
+                <div class="form-group">
+                    <label for="forgot-email">Email Address</label>
+                    <input type="email" id="forgot-email" placeholder="your@email.com" required>
+                </div>
+                
+                <button type="submit" class="btn">Send Reset Link</button>
+                
+                <div class="register-link">
+                    <a href="#" id="back-to-login-from-forgot"><i class="fas fa-arrow-left"></i> Back to login</a>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Reset Password Form -->
+        <div class="login-container hidden" id="reset-password-form">
+            <a href="#" class="login-logo">Astral Threads</a>
+            
+            <div class="login-header">
+                <h2>Create New Password</h2>
+                <p>Your new password must be different from previous passwords</p>
+            </div>
+            
+            <div class="message hidden" id="reset-message"></div>
+            
+            <form class="login-form" id="reset-form-element" action="/reset-password" method="POST">
+                <div class="form-group">
+                    <label for="reset-password">New Password</label>
+                    <div class="password-container">
+                        <input type="password" id="reset-password" placeholder="••••••••" required>
+                        <i class="fas fa-eye toggle-password" id="toggle-reset-password"></i>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-meter" id="reset-strength-meter"></div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reset-confirm-password">Confirm Password</label>
+                    <div class="password-container">
+                        <input type="password" id="reset-confirm-password" placeholder="••••••••" required>
+                        <i class="fas fa-eye toggle-password" id="toggle-reset-confirm-password"></i>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Update Password</button>
+                
+                <div class="register-link">
+                    <a href="#" id="back-to-login-from-reset"><i class="fas fa-arrow-left"></i> Back to login</a>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Verification Form -->
+        <div class="login-container hidden" id="verification-form">
+            <a href="#" class="login-logo">Astral Threads</a>
+            
+            <div class="login-header">
+                <h2>Verify Your Email</h2>
+                <p>We've sent a verification code to <span id="verification-email-display">your@email.com</span></p>
+            </div>
+            
+            <div class="message hidden" id="verification-message"></div>
+            
+            <form class="login-form" id="verification-form-element" action="/verify-email" method="POST">
+                <div class="form-group">
+                    <label>Verification Code</label>
+                    <div class="verification-container">
+                        <input type="text" class="verification-input" maxlength="1" required>
+                        <input type="text" class="verification-input" maxlength="1" required>
+                        <input type="text" class="verification-input" maxlength="1" required>
+                        <input type="text" class="verification-input" maxlength="1" required>
+                        <input type="text" class="verification-input" maxlength="1" required>
+                        <input type="text" class="verification-input" maxlength="1" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Verify Account</button>
+                
+                <div class="register-link">
+                    Didn't receive a code? <a href="#" id="resend-code">Resend code</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./Main.js"></script>
+</body>
+</html>
